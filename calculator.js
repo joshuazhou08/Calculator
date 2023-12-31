@@ -32,7 +32,7 @@ let num2
 let operation
 
 //Function that calls one of the add, subtract, multiple, or divide functions given three args: two #'s and a operation
-const calculation = function(a, b, operator) {
+const calculation = function(a, b, operator) {  
     if (operator == 'add'){
         return add(a, b)
     }
@@ -46,3 +46,4 @@ const calculation = function(a, b, operator) {
         return divide(a, b)
     }
 }
+
