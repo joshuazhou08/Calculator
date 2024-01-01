@@ -38,7 +38,34 @@ html{
 .display{
     font-size: 48px;
     padding: 0 10px 5px 0;
+    font-family: 'Roboto', sans-serif;
+    width: 280px;
+    overflow-x: scroll;
+    height: 62px;
+    scrollbar-width: thin;
 }
+/*Scroll Bar Styling For Display
+/* width */
+::-webkit-scrollbar {
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1b0f0f;
+    border-radius: 10px;
+  }
+
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 .display-history{
     font-size: 16px;
     padding-right: 10px;
