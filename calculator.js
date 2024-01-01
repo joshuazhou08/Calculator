@@ -33,16 +33,16 @@ let operation
 
 //Function that calls one of the add, subtract, multiple, or divide functions given three args: two #'s and a operation
 const calculation = function(a, b, operator) {  
-    if (operator == 'add'){
+    if (operator == '+'){
         return add(a, b)
     }
-    else if (operator == 'subtract'){
+    else if (operator == '-'){
         return subtract(a, b)
     }
-    else if (operator == 'multiply'){
+    else if (operator == 'x'){
         return multiply(a, b)
     }
-    else if (operator == 'divide'){
+    else if (operator == '/'){
         return divide(a, b)
     }
 }
@@ -50,15 +50,37 @@ const calculation = function(a, b, operator) {
 const buttons = document.querySelectorAll('.input')
 const display = document.querySelector('.display')
 const equalBtn = document.querySelector('#execute')
+let displayText = display.textContent
+//Updating display
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if ('0123456789'.includes(button.textContent)){
-            display.textContent = display.textContent + button.textContent
+            if (!operation) {
+                display.textContent = display.textContent + button.textContent
+                num1 = display.textContent
+            }
+            else{
+                display.textContent = ''
+                display.textContent = display.textContent + button.textContent
+                num2 = display.textContent
+            }
         }
         else {
-            display.textContent = display.textContent + ' ' + button.textContent + ' '
+            if (!operation){
+                operation = button.textContent
+                button.style.backgroundColor = 'rgb(130, 68, 68)'
+            }
+            else {
+                let clickEvent = new Event('click');
+                equalBtn.dispatchEvent(clickEvent);
+            }    
+        displayText = display.textContent
     }})
 })
 equalBtn.addEventListener('click', ()=>{
-    
+    const result = calculation(num1, num2, operation)
+    display.textContent = result
+    operation = undefined;
+    num1 = result
+    num2 = undefined
 })
