@@ -47,3 +47,18 @@ const calculation = function(a, b, operator) {
     }
 }
 
+const buttons = document.querySelectorAll('.input')
+const display = document.querySelector('.display')
+const equalBtn = document.querySelector('#execute')
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if ('0123456789'.includes(button.textContent)){
+            display.textContent = display.textContent + button.textContent
+        }
+        else {
+            display.textContent = display.textContent + ' ' + button.textContent + ' '
+    }})
+})
+equalBtn.addEventListener('click', ()=>{
+    
+})
