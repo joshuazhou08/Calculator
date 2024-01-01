@@ -27,14 +27,16 @@ const divide = function(a,b){
 }
 
 //Visual effects
+function mouseEnter(button){
+    button.style.backgroundColor = 'rgb(189, 189, 189)'
+}
+function mouseLeave(button){
+    button.style.backgroundColor = 'white'
+}
 const allButtons = document.querySelectorAll('button')
 allButtons.forEach((button)=>{
-    button.addEventListener('mouseenter', ()=>{
-        button.style.backgroundColor = 'rgb(189, 189, 189)'
-    })
-    button.addEventListener('mouseleave', ()=>{
-        button.style.backgroundColor = 'white'
-    })
+    button.addEventListener('mouseenter', mouseEnter)
+    button.addEventListener('mouseleave', mouseLeave)
 })
 
 //Initialize variables containing the two numbers to be operated on and the operator
@@ -82,13 +84,8 @@ buttons.forEach((button) => {
             if (!operation){
                 operation = button.textContent
                 //Highlight the button to indicate which operation the user is on
-                button.removeEventListener('mouseenter', ()=>{
-                    button.style.backgroundColor = 'rgb(189, 189, 189)'
-                })
-                button.removeEventListener('mouseleave',()=>{
-                    button.style.backgroundColor = 'white'
-                })
                 button.style.backgroundColor = 'rgb(130, 68, 68)'
+                button.removeEventListener('mouseleave', mouseLeave)
                 currOperatingBtn = button
 
             }   
@@ -103,8 +100,10 @@ equalBtn.addEventListener('click', ()=>{
         operation = undefined;
         num1 = result
         num2 = 0
-        currOperatingBtn.style.backgroundColor = 'white';
-        currOperatingBtn.addEventListener('mouseleave')
+        //Unhighlight the current operator the user is working with
+        currOperatingBtn.style.backgroundColor = 'white'
+        currOperatingBtn.addEventListener('mouseenter', mouseEnter)
+        currOperatingBtn.addEventListener('mouseleave', mouseLeave)
         equalBtn.style.backgroundColor = 'white'
     }
 })
