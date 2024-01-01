@@ -50,6 +50,7 @@ const calculation = function(a, b, operator) {
 const buttons = document.querySelectorAll('.input')
 const display = document.querySelector('.display')
 const equalBtn = document.querySelector('#execute')
+const displayHistory = document.querySelector('.display-history')
 let displayText = display.textContent
 //Updating display
 buttons.forEach((button) => {
@@ -78,7 +79,9 @@ buttons.forEach((button) => {
     }})
 })
 equalBtn.addEventListener('click', ()=>{
+
     const result = calculation(num1, num2, operation)
+    displayHistory.textContent = num1 + operation + num2 + '='
     display.textContent = result
     operation = undefined;
     num1 = result
