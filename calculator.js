@@ -26,6 +26,17 @@ const divide = function(a,b){
     return numA / numB
 }
 
+//Visual effects
+const allButtons = document.querySelectorAll('button')
+allButtons.forEach((button)=>{
+    button.addEventListener('mouseenter', ()=>{
+        button.style.backgroundColor = 'rgb(189, 189, 189)'
+    })
+    button.addEventListener('mouseleave', ()=>{
+        button.style.backgroundColor = 'white'
+    })
+})
+
 //Initialize variables containing the two numbers to be operated on and the operator
 let num1 = 0
 let num2 = 0
@@ -51,7 +62,6 @@ const buttons = document.querySelectorAll('.input')
 const display = document.querySelector('.display')
 const equalBtn = document.querySelector('#execute')
 const displayHistory = document.querySelector('.display-history')
-let displayText = display.textContent
 let currOperatingBtn
 //Updating display
 buttons.forEach((button) => {
@@ -67,17 +77,21 @@ buttons.forEach((button) => {
                 num2 = display.textContent
             }
         }
+        //Handling the operator buttons
         else {
             if (!operation){
                 operation = button.textContent
+                //Highlight the button to indicate which operation the user is on
+                button.removeEventListener('mouseenter', ()=>{
+                    button.style.backgroundColor = 'rgb(189, 189, 189)'
+                })
+                button.removeEventListener('mouseleave',()=>{
+                    button.style.backgroundColor = 'white'
+                })
                 button.style.backgroundColor = 'rgb(130, 68, 68)'
                 currOperatingBtn = button
-            }
-            else {
-                let clickEvent = new Event('click');
-                equalBtn.dispatchEvent(clickEvent);
-            }    
-        displayText = display.textContent
+
+            }   
     }})
 })
 equalBtn.addEventListener('click', ()=>{
@@ -90,6 +104,7 @@ equalBtn.addEventListener('click', ()=>{
         num1 = result
         num2 = 0
         currOperatingBtn.style.backgroundColor = 'white';
+        currOperatingBtn.addEventListener('mouseleave')
         equalBtn.style.backgroundColor = 'white'
     }
 })
