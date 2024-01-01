@@ -27,8 +27,8 @@ const divide = function(a,b){
 }
 
 //Initialize variables containing the two numbers to be operated on and the operator
-let num1
-let num2
+let num1 = 0
+let num2 = 0
 let operation
 
 //Function that calls one of the add, subtract, multiple, or divide functions given three args: two #'s and a operation
@@ -52,6 +52,7 @@ const display = document.querySelector('.display')
 const equalBtn = document.querySelector('#execute')
 const displayHistory = document.querySelector('.display-history')
 let displayText = display.textContent
+let currOperatingBtn
 //Updating display
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -70,6 +71,7 @@ buttons.forEach((button) => {
             if (!operation){
                 operation = button.textContent
                 button.style.backgroundColor = 'rgb(130, 68, 68)'
+                currOperatingBtn = button
             }
             else {
                 let clickEvent = new Event('click');
@@ -79,11 +81,15 @@ buttons.forEach((button) => {
     }})
 })
 equalBtn.addEventListener('click', ()=>{
-
-    const result = calculation(num1, num2, operation)
-    displayHistory.textContent = num1 + operation + num2 + '='
-    display.textContent = result
-    operation = undefined;
-    num1 = result
-    num2 = undefined
+    if (num1 && num2 && operation){
+        equalBtn.style.backgroundColor = 'rgb(189, 189, 189)'
+        const result = calculation(num1, num2, operation)
+        displayHistory.textContent = num1 + operation + num2 + '='
+        display.textContent = result
+        operation = undefined;
+        num1 = result
+        num2 = 0
+        currOperatingBtn.style.backgroundColor = 'white';
+        equalBtn.style.backgroundColor = 'white'
+    }
 })
