@@ -55,7 +55,7 @@ const calculation = function(a, b, operator) {
     else if (operator == 'x'){
         return multiply(a, b)
     }
-    else if (operator == '/'){
+    else if (operator == '÷'){
         return divide(a, b)
     }
 }
@@ -107,3 +107,4 @@ equalBtn.addEventListener('click', ()=>{
         equalBtn.style.backgroundColor = 'white'
     }
 })
+//Clear Button
