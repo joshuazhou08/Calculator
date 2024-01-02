@@ -83,7 +83,7 @@ buttons.forEach((button) => {
         }
         //Handling the operator buttons
         else {
-            if (!operation){
+            if (!operation && num1){
                 operation = button.textContent
                 //Highlight the button to indicate which operation the user is on
                 button.style.backgroundColor = 'rgb(130, 68, 68)'
@@ -114,3 +114,13 @@ equalBtn.addEventListener('click', ()=>{
     }
 })
 //Clear Button
+const clearBtn = document.querySelector('#clear-btn')
+clearBtn.addEventListener('click', ()=>{
+    display.textContent = ''
+    displayHistory.textContent = ''
+    num1 = 0
+    num2 = 0
+    operation = undefined
+    currOperatingBtn.style.backgroundColor = 'white';
+    currOperatingBtn.addEventListener('mouseleave', mouseLeave)
+})
