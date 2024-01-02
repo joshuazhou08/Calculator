@@ -94,7 +94,11 @@ buttons.forEach((button) => {
 equalBtn.addEventListener('click', ()=>{
     if (num1 && num2 && operation){
         equalBtn.style.backgroundColor = 'rgb(189, 189, 189)'
-        const result = calculation(num1, num2, operation)
+        let result = calculation(num1, num2, operation)
+        //Round the result if it is too long
+        if (result.toString().length > 6){
+            result = result.toFixed(4)
+        }
         displayHistory.textContent = num1 + operation + num2 + '='
         display.textContent = result
         operation = undefined;
