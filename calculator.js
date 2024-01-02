@@ -93,6 +93,16 @@ buttons.forEach((button) => {
             }   
     }})
 })
+//Remove Leading Zeros
+function removeLeadingZeros(number){
+    number = number.toString()
+    if (number[number.length-1] != '0'){
+        return number
+    }
+    else {
+        return removeLeadingZeros(number.slice(0,number.length-1))
+    }
+}
 equalBtn.addEventListener('click', ()=>{
     if (num1 && num2 && operation){
         equalBtn.style.backgroundColor = 'rgb(189, 189, 189)'
@@ -100,6 +110,7 @@ equalBtn.addEventListener('click', ()=>{
         //Round the result if it is too long
         if (result.toString().length > 6){
             result = result.toFixed(4)
+            result = removeLeadingZeros(result)
         }
         displayHistory.textContent = num1 + operation + num2 + '='
         display.textContent = result
