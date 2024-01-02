@@ -87,9 +87,9 @@ buttons.forEach((button) => {
                 operation = button.textContent
                 //Highlight the button to indicate which operation the user is on
                 button.style.backgroundColor = 'rgb(130, 68, 68)'
+                button.removeEventListener('mouseenter', mouseEnter)
                 button.removeEventListener('mouseleave', mouseLeave)
                 currOperatingBtn = button
-
             }   
     }})
 })
