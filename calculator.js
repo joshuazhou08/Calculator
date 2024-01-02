@@ -1,25 +1,25 @@
 //Functions to add, subtract, multiply, and divide
 const add = function(a, b) {
-    const numA = parseInt(a)
-    const numB = parseInt(b)
+    const numA = parseFloat(a)
+    const numB = parseFloat(b)
     return numA + numB
 }
 
 const subtract = function(a,b){
-    const numA = parseInt(a)
-    const numB = parseInt(b)
+    const numA = parseFloat(a)
+    const numB = parseFloat(b)
     return numA - numB
 }
 
 const multiply = function(a,b) {
-    const numA = parseInt(a)
-    const numB = parseInt(b)
+    const numA = parseFloat(a)
+    const numB = parseFloat(b)
     return numA * numB
 }
 
 const divide = function(a,b){
-    const numA = parseInt(a)
-    const numB = parseInt(b)
+    const numA = parseFloat(a)
+    const numB = parseFloat(b)
     if (numB == 0) {
         return 'Infinity'
     }
@@ -124,3 +124,16 @@ clearBtn.addEventListener('click', ()=>{
     currOperatingBtn.style.backgroundColor = 'white';
     currOperatingBtn.addEventListener('mouseleave', mouseLeave)
 })
+
+//Decimal Button
+const decimalBtn = document.querySelector('#decimal')
+decimalBtn.addEventListener('click',()=>{
+    //Checking if we are working on num1 or num2
+    if (!operation){
+        if (!num1.toString().includes('.')){
+            display.textContent = display.textContent + decimalBtn.textContent
+            num1 = display.textContent
+        }
+    }
+}
+)
