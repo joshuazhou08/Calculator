@@ -146,5 +146,11 @@ decimalBtn.addEventListener('click',()=>{
             num1 = display.textContent
         }
     }
+    else {
+        if (!num2.toString().includes('.')){
+            display.textContent = display.textContent + decimalBtn.textContent
+            num2 = display.textContent
+        }
+    }
 }
 )
