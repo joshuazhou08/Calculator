@@ -44,6 +44,10 @@ html{
     height: 62px;
     scrollbar-width: thin;
 }
+.display-history{
+    box-sizing: border-box;
+    height: 32px;
+}
 /*Scroll Bar Styling For Display
 /* width */
 ::-webkit-scrollbar {
