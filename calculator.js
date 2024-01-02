@@ -27,11 +27,13 @@ const divide = function(a,b){
 }
 
 //Visual effects
-function mouseEnter(button){
+let buttonColor
+function mouseEnter(){
+    buttonColor = this.style.backgroundColor
     this.style.backgroundColor = 'rgb(189, 189, 189)'
 }
 function mouseLeave(){
-    this.style.backgroundColor = 'white'
+    this.style.backgroundColor = buttonColor
 }
 const allButtons = document.querySelectorAll('button')
 allButtons.forEach((button)=>{
