@@ -16,6 +16,8 @@ html{
     padding: 10px;
 }
 .container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 30px 25px 20px;
     border-radius: 20px;
@@ -24,12 +26,15 @@ html{
 }
 
 .display-container {
+    box-sizing: border-box;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: rgb(182, 166, 166);
     margin-bottom: 20px;
     border-radius: 15px;
+    width: 290px;
+    padding: 0 10px;
     border: 5px solid rgb(133, 129, 129);
 }
 .display-history, .display{
@@ -39,7 +44,7 @@ html{
     font-size: 48px;
     padding: 0 10px 5px 0;
     font-family: 'Roboto', sans-serif;
-    width: 280px;
+    width: 100%;
     overflow-x: scroll;
     height: 62px;
     scrollbar-width: thin;
